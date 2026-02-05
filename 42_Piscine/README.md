@@ -10,7 +10,7 @@ Programación 7 días a la semana, día y noche, junto a muchas otras personas e
 | [Shell 01](./shell01)    | **55%** |
 |                          |          |
 | [C 00](./c00)            | **70%** |
-| [C 01](./c01)            | **85%** |
+| [C 01](./c01)            | **100%** |
 | [C 02](./c02)            | **0%**  |
 | [C 03](./c03)            | **0%**  |
 | [C 04](./c04)            | **0%**  |
