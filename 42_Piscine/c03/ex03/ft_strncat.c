@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmonteir <pmonteir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 16:28:08 by pmonteir          #+#    #+#             */
-/*   Updated: 2026/02/12 01:49:39 by pmonteir         ###   ########.fr       */
+/*   Created: 2026/02/12 00:09:25 by pmonteir          #+#    #+#             */
+/*   Updated: 2026/02/12 01:49:47 by pmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0')
+	while (src[j] != '\0' && j < nb)
 	{
 		dest[i] = src[j];
 		i++;
@@ -33,9 +33,9 @@ char	*ft_strcat(char *dest, char *src)
 
 int	main(void)
 {
-	char	buffer[50] = "Hola ";
+	char	dest[100] = "Hello";
 
-	ft_strcat(buffer, "mundo");
-	printf("%s\n", buffer);
+	ft_strncat(dest, " World!", 6);
+	printf("%s\n", dest);
 	return (0);
 }

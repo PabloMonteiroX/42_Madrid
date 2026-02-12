@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmonteir <pmonteir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 16:28:08 by pmonteir          #+#    #+#             */
-/*   Updated: 2026/02/12 01:49:39 by pmonteir         ###   ########.fr       */
+/*   Created: 2026/02/12 00:20:02 by pmonteir          #+#    #+#             */
+/*   Updated: 2026/02/12 01:50:03 by pmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
 
+	if (to_find[0] == '\0')
+		return (str);
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[j];
+		j = 0;
+		while (str[i + j] == to_find[j] && to_find[j] != '\0')
+			j++;
+		if (to_find[j] == '\0')
+			return (&str[i]);
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }
 
 int	main(void)
 {
-	char	buffer[50] = "Hola ";
+	char	str[] = "Hola mundo";
 
-	ft_strcat(buffer, "mundo");
-	printf("%s\n", buffer);
+	printf("%s\n", ft_strstr(str, "mun"));
+	printf("%s\n", ft_strstr(str, "Hola"));
+	printf("%s\n", ft_strstr(str, ""));
 	return (0);
 }
